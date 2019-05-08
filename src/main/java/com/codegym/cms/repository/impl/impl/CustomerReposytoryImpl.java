@@ -1,4 +1,6 @@
 package com.codegym.cms.repository.impl.impl;
 
-public class CustomerReposytoryImpl {
+import com.codegym.cms.repository.impl.CustomerReposytory;
+
+public class CustomerReposytoryImpl implements CustomerReposytory {
 }

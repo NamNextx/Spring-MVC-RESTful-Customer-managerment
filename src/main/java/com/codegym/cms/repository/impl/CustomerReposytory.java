@@ -1,4 +1,4 @@
 package com.codegym.cms.repository.impl;
 
-public interface CustomerReposytory {
+public interface CustomerReposytory extends Repository {
 }

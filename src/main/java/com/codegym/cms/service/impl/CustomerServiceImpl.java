@@ -1,4 +1,6 @@
 package com.codegym.cms.service.impl;
 
-public class CustomerServiceImpl {
+import com.codegym.cms.service.CustomerService;
+
+public class CustomerServiceImpl implements CustomerService {
 }
