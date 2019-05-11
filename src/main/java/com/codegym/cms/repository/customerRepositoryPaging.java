@@ -1,4 +1,7 @@
 package com.codegym.cms.repository;
 
-public interface customerRepositoryPaging {
+import com.codegym.cms.model.Customer;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+public interface customerRepositoryPaging extends PagingAndSortingRepository<Customer,Long> {
 }

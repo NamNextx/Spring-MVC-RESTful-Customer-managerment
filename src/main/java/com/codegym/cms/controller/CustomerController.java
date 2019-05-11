@@ -8,8 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
-
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class CustomerController {
     private CustomerService customerService;
 
     //-----Retrieve All Customer
-    @RequestMapping(value = "/customers/",method = RequestMethod.GET)
+    @RequestMapping(value = "/customers",method = RequestMethod.GET)
     public ResponseEntity<List<Customer>> listAllCustomer(){
         List<Customer> customers = customerService.findAll();
         if (customers.isEmpty()){
@@ -40,12 +40,12 @@ public class CustomerController {
     }
     // -- create a Customer
     @RequestMapping(value = "/customers/", method = RequestMethod.POST)
-    public ResponseEntity<Void> createCustomer(@RequestBody Customer customer, UriComponentsBuilder ucBuilder){
-        //System.out.println("Create Customer" + customer.getLastName());
+    public ResponseEntity<Void> createCustomer(@RequestBody Customer customer, UriComponentsBuilder uriComponentsBuilder){
+        System.out.println("Create Customer" + customer.getLastName());
         customerService.save(customer);
         HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(ucBuilder.path("/customers/{id}").buildAndExpand(customer.getId()).toUri());
-        return new ResponseEntity<Void>(headers,HttpStatus.CREATED);
+        headers.setLocation(uriComponentsBuilder.path("/customers/{id}").buildAndExpand(customer.getId()).toUri());
+        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
 

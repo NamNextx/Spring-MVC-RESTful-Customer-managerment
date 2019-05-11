@@ -1,6 +1,7 @@
 package com.codegym.cms.config;
 
 import com.codegym.cms.repository.CustomerRepository;
+import com.codegym.cms.repository.customerRepositoryPaging;
 import com.codegym.cms.repository.impl.CustomerRepositoryImpl;
 import com.codegym.cms.service.CustomerService;
 import com.codegym.cms.service.impl.CustomerServiceImpl;
@@ -34,6 +35,7 @@ import java.util.Properties;
 @EnableTransactionManagement
 @ComponentScan("com.codegym.cms")
 @EnableSpringDataWebSupport
+@EnableJpaRepositories("com.codegym.cms.repository")
 public class ApplicationConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
     private ApplicationContext applicationContext;
     @Override
@@ -49,6 +51,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     public CustomerService customerService(){
         return new CustomerServiceImpl();
     }
+
 
     // Setting JPA
 
